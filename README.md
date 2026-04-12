@@ -33,4 +33,4 @@ This project strictly follows **Clean Architecture** principles combined with **
 ### Running the App
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/rudrigaum/VolunteerHub.git](https://github.com/rudrigaum/VolunteerHub.git)a
+   git clone [https://github.com/rudrigaum/VolunteerHub.git](https://github.com/rudrigaum/VolunteerHub.git)
