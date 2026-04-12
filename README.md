@@ -1,39 +1,36 @@
-This is a Kotlin Multiplatform project targeting Android, iOS.
+# 🤝 VolunteerHub
 
-* [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./composeApp/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./composeApp/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./composeApp/src/jvmMain/kotlin)
-    folder is the appropriate location.
+> A modern, open-source Kotlin Multiplatform (KMP) application designed to empower NGOs and streamline volunteer management, campaigns, and task coordination.
 
-* [/iosApp](./iosApp/iosApp) contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform,
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+## 📱 Platforms
 
-* [/shared](./shared/src) is for the code that will be shared between all targets in the project.
-  The most important subfolder is [commonMain](./shared/src/commonMain/kotlin). If preferred, you
-  can add code to the platform-specific folders here too.
+- **Android:** 100% Jetpack Compose
+- **iOS:** 100% SwiftUI
+- **Shared Core:** Kotlin Multiplatform (Domain, Data, and Presentation logic)
 
-### Build and Run Android Application
+## 🏗 Architecture
 
-To build and run the development version of the Android app, use the run configuration from the run widget
-in your IDE’s toolbar or build it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:assembleDebug
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:assembleDebug
-  ```
+This project strictly follows **Clean Architecture** principles combined with **MVI/MVVM** for the presentation layer.
 
-### Build and Run iOS Application
+* **`shared` module:** Contains all the business logic, UseCases, Repositories, and ViewModels. It acts as the single source of truth for the application state.
+* **`androidApp` / `iosApp` modules:** These are "dumb" UI layers. They observe the state emitted by the shared ViewModels and send UI intents/actions back to them.
 
-To build and run the development version of the iOS app, use the run configuration from the run widget
-in your IDE’s toolbar or open the [/iosApp](./iosApp) directory in Xcode and run it from there.
+### Tech Stack
+* **Language:** Kotlin & Swift
+* **UI:** Jetpack Compose (Android) & SwiftUI (iOS)
+* **Concurrency:** Kotlin Coroutines & Flow
+* **Dependency Injection:** Koin
+* **Network:** Ktor (Coming soon)
+* **Local Storage:** Room KMP / SQLDelight (Coming soon)
 
----
+## 🚀 Getting Started
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+### Prerequisites
+* [Android Studio](https://developer.android.com/studio) (Latest stable or Ladybug version recommended)
+* [Xcode](https://developer.apple.com/xcode/) (For iOS development)
+* JDK 17+
+
+### Running the App
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/rudrigaum/VolunteerHub.git](https://github.com/rudrigaum/VolunteerHub.git)a
